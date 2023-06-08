@@ -69,5 +69,65 @@ get '/search/exercises' do
 end
 
 
+# User routes
+get '/users' do
+  content_type :json
+  if params[:name]
+    @users = User.where(name: params[:name])
+  else
+    @users = User.all
+  end
+  @users.to_json
+end
+
+get '/users/:id' do
+  content_type :json
+  @user = User.find(params[:id])
+  {
+    id: @user.id,
+    name: @user.name,
+    email: @user.email,
+    workouts: @user.workouts.map do |workout|
+      {
+        id: workout.id,
+        name: workout.name,
+        exercises: workout.exercises.map do |exercise|
+          {
+            id: exercise.id,
+            name: exercise.name
+          }
+        end
+      }
+    end
+  }.to_json
+end
+
+post '/users' do
+  content_type :json
+  @user = User.create(params)
+  @user.to_json
+end
+
+put '/users/:id' do
+  content_type :json
+  @user = User.find(params[:id])
+  @user.update(params)
+  @user.to_json
+end
+
+delete '/users/:id' do
+  content_type :json
+  @user = User.find(params[:id])
+  @user.destroy
+  { success: "User deleted" }.to_json
+end
+
+get '/search/users' do
+  content_type :json
+  @users = User.where("email LIKE ?", "%#{params[:query]}%")
+  @users.to_json
+end
+
+
 
 end
