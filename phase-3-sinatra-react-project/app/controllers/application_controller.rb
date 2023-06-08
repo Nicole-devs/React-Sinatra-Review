@@ -76,5 +76,38 @@ class ApplicationController < Sinatra::Base
     workout = Workout.find(params[:id])
     workout.destroy.to_json(include: [:user, :exercises])
   end
-  
+
+# Show all exercises
+  get '/exercises' do
+    content_type :json
+    Exercise.all.to_json
+  end
+
+# Show a specific exercise
+  get '/exercises/:id' do
+    content_type :json
+    Exercise.find(params[:id]).to_json
+  end
+
+# Create a new exercise
+  post '/exercises' do
+    content_type :json
+    Exercise.create(name: params[:name], sets: params[:sets], reps: params[:reps], workout_id: params[:workout_id]).to_json
+  end
+
+# Update a specific exercise
+  put '/exercises/:id' do
+    content_type :json
+    exercise = Exercise.find(params[:id])
+    exercise.update(name: params[:name], sets: params[:sets], reps: params[:reps])
+    exercise.to_json
+  end
+
+# Delete a specific exercise
+  delete '/exercises/:id' do
+    content_type :json
+    exercise = Exercise.find(params[:id])
+    exercise.destroy.to_json
+  end
+
 end
