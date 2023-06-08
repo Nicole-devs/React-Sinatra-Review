@@ -2,10 +2,12 @@ puts "🌱 Seeding spices..."
 
 # Seed your database here
 # db/seeds.rb
+puts "Users before seeding: #{User.count}"
 User.create(name: 'Josh', email: 'josh@example.com')
 User.create(name: 'Papa', email: 'papa@example.com')
 User.create(name: 'Mercy', email: 'mercy@example.com')
 User.create(name: 'Pesh', email: 'pesh@example.com')
+puts "Users after seeding: #{User.count}"
 
 Workout.create(name: 'Monday Workout', user_id: 1)
 Workout.create(name: 'Wednesday Workout', user_id: 1)
