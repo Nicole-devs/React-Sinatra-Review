@@ -25,10 +25,12 @@ Workout.create([
 ])
 
 
-Exercise.create(name: 'Push-ups', workout_id: 1)
-Exercise.create(name: 'Sit-ups', workout_id: 2)
-Exercise.create(name: 'Squats', workout_id: 3)
-Exercise.create(name: 'Lunges', workout_id: 4)
-Exercise.create(name: 'Plank', workout_id: 5)
+Exercise.create([
+{name: 'Push-ups', workout_id: 1}
+{name: 'Sit-ups', workout_id: 2} 
+{name: 'Squats', workout_id: 3}
+{name: 'Lunges', workout_id: 4}
+{name: 'Plank', workout_id: 5}
+])
 
 puts "✅ Done seeding!"
