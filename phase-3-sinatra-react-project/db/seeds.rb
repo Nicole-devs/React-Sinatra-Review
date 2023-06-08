@@ -2,10 +2,11 @@ puts "🌱 Seeding fitness..."
 
 # Seed your database here
 
-User.create(name: 'Alice', email: 'alice@example.com')
-User.create(name: 'Bob', email: 'bob@example.com')
-User.create(name: 'Charlie', email: 'charlie@example.com')
-User.create(name: 'Dave', email: 'dave@example.com')
+User.create([
+  { name: 'Alice', email: 'alice@example.com' },
+  { name: 'Bob', email: 'bob@example.com' },
+  { name: 'Charlie', email: 'charlie@example.com' }
+])
 
 Workout.create(name: 'Monday Workout', user_id: 1)
 Workout.create(name: 'Wednesday Workout', user_id: 1)
