@@ -1,8 +1,32 @@
-puts "🌱 Seeding spices..."
+puts "🌱 Seeding fitness..."
 
 # Seed your database here
-Student.create(name: "Salad",age: 23)
-Student.create(name: "Austin",age: 69)
-Student.create(name: "ELizabeth",age: 21)
+
+User.create(name: 'Alice', email: 'alice@example.com')
+User.create(name: 'Bob', email: 'bob@example.com')
+User.create(name: 'Charlie', email: 'charlie@example.com')
+User.create(name: 'Dave', email: 'dave@example.com')
+
+Workout.create(name: 'Monday Workout', user_id: 1)
+Workout.create(name: 'Wednesday Workout', user_id: 1)
+Workout.create(name: 'Friday Workout', user_id: 1)
+
+Workout.create(name: 'Tuesday Workout', user_id: 2)
+Workout.create(name: 'Thursday Workout', user_id: 2)
+Workout.create(name: 'Saturday Workout', user_id: 2)
+
+Workout.create(name: 'Sunday Workout', user_id: 3)
+Workout.create(name: 'Tuesday Workout', user_id: 3)
+Workout.create(name: 'Thursday Workout', user_id: 3)
+
+Workout.create(name: 'Monday Workout', user_id: 4)
+Workout.create(name: 'Wednesday Workout', user_id: 4)
+Workout.create(name: 'Friday Workout', user_id: 4)
+
+Exercise.create(name: 'Push-ups', workout_id: 1)
+Exercise.create(name: 'Sit-ups', workout_id: 2)
+Exercise.create(name: 'Squats', workout_id: 3)
+Exercise.create(name: 'Lunges', workout_id: 4)
+Exercise.create(name: 'Plank', workout_id: 5)
 
 puts "✅ Done seeding!"
