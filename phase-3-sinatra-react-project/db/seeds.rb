@@ -2,10 +2,10 @@ puts "🌱 Seeding spices..."
 
 # Seed your database here
 # db/seeds.rb
-User.create(name: 'Josh', email: 'alice@example.com')
-User.create(name: 'Papa', email: 'bob@example.com')
-User.create(name: 'Mercy', email: 'charlie@example.com')
-User.create(name: 'Pesh', email: 'dave@example.com')
+User.create(name: 'Josh', email: 'josh@example.com')
+User.create(name: 'Papa', email: 'papa@example.com')
+User.create(name: 'Mercy', email: 'mercy@example.com')
+User.create(name: 'Pesh', email: 'pesh@example.com')
 
 Workout.create(name: 'Monday Workout', user_id: 1)
 Workout.create(name: 'Wednesday Workout', user_id: 1)
