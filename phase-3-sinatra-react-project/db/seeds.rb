@@ -3,9 +3,10 @@ puts "🌱 Seeding fitness..."
 # Seed your database here
 
 User.create([
-  { name: 'Alice', email: 'alice@example.com' },
-  { name: 'Bob', email: 'bob@example.com' },
-  { name: 'Charlie', email: 'charlie@example.com' }
+  { name: 'Papa', email: 'alice@example.com' },
+  { name: 'Davy', email: 'bob@example.com' },
+  { name: 'Mercy', email: 'charlie@example.com' }
+  { name: 'Pesh', email: 'charlie@example.com' }
 ])
 
 
