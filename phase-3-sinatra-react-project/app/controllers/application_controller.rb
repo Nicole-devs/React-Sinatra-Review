@@ -129,5 +129,55 @@ get '/search/users' do
 end
 
 
+# Workout routes
+get '/workouts' do
+  content_type :json
+  authenticate!
+  if params[:date]
+    @workouts = @current_user.workouts.where(date: params[:date])
+  else
+    @workouts = @current_user.workouts
+  end
+  @workouts.to_json(include: :exercises)
+end
+
+get '/workouts/:id' do
+  content_type :json
+  authenticate!
+  @workout = Workout.find(params[:id])
+  halt 403 unless @workout.user == @current_user
+  {
+    id: @workout.id,
+    name: @workout.name,
+    exercises: @workout.exercises.map do |exercise|
+      {
+        id: exercise.id,
+        name: exercise.name
+      }
+    end
+  }.to_json
+end
+
+post '/workouts' do
+  content_type :json
+  authenticate!
+  @workout = @current_user.workouts.create(params)
+  @workout.to_json(include: :exercises)
+end
+
+put '/workouts/:id' do 
+# ...
+end 
+
+delete '/workouts/:id' do 
+# ...
+end 
+
+get '/search/workouts' do
+  content_type :json
+  authenticate!
+  @workouts = @current_user.workouts.where("name LIKE ?", "%#{params[:query]}%")
+  @workouts.to_json(include: :exercises)
+end
 
 end
