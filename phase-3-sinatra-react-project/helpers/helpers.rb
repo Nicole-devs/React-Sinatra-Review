@@ -15,3 +15,13 @@ error do
     { error: "Internal server error" }.to_json
 end
   
+
+begin
+    # Find the user with an id of 1
+    user = User.find(1)
+  rescue ActiveRecord::RecordNotFound
+    
+    # Handle the error
+    puts "Sorry, we couldn't find a user with that id."
+  end
+  
